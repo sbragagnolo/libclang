@@ -3,12 +3,12 @@ Trait {
 	#category : #'LibClang-Core'
 }
 
-{ #category : #'external library' }
+{ #category : #'as yet unclassified' }
 TLibClang classSide >> clang [
 	^CXIndexH uniqueInstance 
 ]
 
-{ #category : #'external library' }
+{ #category : #'as yet unclassified' }
 TLibClang >> clang [
 	^ self class clang
 ]

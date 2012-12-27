@@ -1,18 +1,8 @@
 Extension { #name : #CXSourceLocationStruct }
 
 { #category : #'*libclang-core' }
-CXSourceLocationStruct >> column [
-	^self presumedLocation third.
-]
-
-{ #category : #'*libclang-core' }
-CXSourceLocationStruct >> line [
-	^self presumedLocation  second.
-]
-
-{ #category : #'*libclang-core' }
 CXSourceLocationStruct >> presumedLocation [
-	| fileValue line column  fileName |
+	| fileValue line column cstr fileName |
 	fileValue := CXStringStruct new.
 	line := ByteArray new: 4.
 	column := ByteArray new: 4.
@@ -35,7 +25,7 @@ CXSourceLocationStruct >> spellingLocation [
 	line := ByteArray new: 4.
 	column := ByteArray new: 4.
 	offset := ByteArray new: 4.
-	CXIndexH uniqueInstance
+	self clang
 		getSpellingLocation: self
 		file: file
 		line: line
