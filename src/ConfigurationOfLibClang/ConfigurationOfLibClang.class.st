@@ -130,13 +130,15 @@ ConfigurationOfLibClang >> baseline10: spec [
 			package: 'LibClang-FFI-Types' with: [
 				spec requires: #('NativeBoost' 'TalkFFIRuntime' ). ];
 			package: 'LibClang-FFI-Binding' with: [
-				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' ). ];
+				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' );
+				postLoadDoIt: #postloadForCore  ];
 			package: 'LibClang-Core' with: [
 				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
 			package: 'LibClang-Examples' with: [
 				spec requires: #('LibClang-Core' ). ].
 		spec 
-			group: 'default' with: #('Core' );
+			group: 'default' with: #('All' );
+			group: 'All' 	with: #('Core' 'Examples');
 			group: 'Core' with: #('LibClang-Core' );
 			group: 'Examples' with: #('LibClang-Examples' ). ].
 
@@ -148,6 +150,12 @@ ConfigurationOfLibClang >> development: spec [
 
 	spec for: #'common' version: '1.0'.
 
+]
+
+{ #category : #'post load' }
+ConfigurationOfLibClang >> postloadForCore [
+
+	LibClangMap initialize.
 ]
 
 { #category : #accessing }
@@ -178,7 +186,7 @@ ConfigurationOfLibClang >> version10: spec [
 		spec 
 			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with: 'LibClang-Core-CiprianTeodorov.1';
+			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.1';
 			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.1'. ].
 
 ]
