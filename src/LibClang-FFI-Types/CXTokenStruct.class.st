@@ -1,6 +1,7 @@
 Class {
 	#name : #CXTokenStruct,
 	#superclass : #NBExternalStructure,
+	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 
