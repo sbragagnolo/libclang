@@ -88,16 +88,6 @@ ConfigurationOfLibClang class >> loadDevelopment [
 	^(self project version: #development) load
 ]
 
-{ #category : #loading }
-ConfigurationOfLibClang class >> loadStable [
-	"Load the #stable version defined for this platform. "
-
-	"self loadStable"
-
-	<apiDocumentation>
-	^(self project version: #stable) load
-]
-
 { #category : #accessing }
 ConfigurationOfLibClang class >> project [
 
@@ -129,143 +119,26 @@ ConfigurationOfLibClang >> baseline10: spec [
 			project: 'NativeBoost' with: [
 				spec
 					className: 'ConfigurationOfNativeBoost';
-					versionString: #'1.9';
+					versionString: #'stable';
 					repository: 'http://www.squeaksource.com/NativeBoost' ];
 			project: 'TalkFFIRuntime' with: [
 				spec
-					className: 'ConfigurationOfTalkFFI';
+					className: 'ConfigurationOfTalkFFIRuntime';
 					versionString: #'bleedingEdge';
-					loads: #('Runtime');
 					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
 		spec 
 			package: 'LibClang-FFI-Types' with: [
 				spec requires: #('NativeBoost' 'TalkFFIRuntime' ). ];
 			package: 'LibClang-FFI-Binding' with: [
-				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' );
-				postLoadDoIt: #postloadForCore  ];
+				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' ). ];
 			package: 'LibClang-Core' with: [
 				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
 			package: 'LibClang-Examples' with: [
 				spec requires: #('LibClang-Core' ). ].
 		spec 
-			group: 'default' with: #('All' );
-			group: 'All' 	with: #('Core' 'Examples');
+			group: 'default' with: #('Core' );
 			group: 'Core' with: #('LibClang-Core' );
 			group: 'Examples' with: #('LibClang-Examples' ). ].
-
-]
-
-{ #category : #baselines }
-ConfigurationOfLibClang >> baseline11: spec [
-	<version: '1.1-baseline'>
-
-	spec for: #'common' do: [
-		spec blessing: #'baseline'.
-		spec repository: 'http://smalltalkhub.com/mc/CipT/LibClang/main'.
-		spec 
-			project: 'NativeBoost' with: [
-				spec
-					className: 'ConfigurationOfNativeBoost';
-					versionString: #'2.0';
-					repository: 'http://www.smalltalkhub.com/mc/Pharo/NativeBoost/main' ];
-			project: 'TalkFFIRuntime' with: [
-				spec
-					className: 'ConfigurationOfTalkFFI';
-					versionString: #'development';
-					loads: #('Runtime');
-					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
-		spec 
-			package: 'LibClang-FFI-Types' with: [
-				spec requires: #('NativeBoost'). ];
-			package: 'LibClang-FFI-Binding' with: [
-				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' );
-				postLoadDoIt: #postloadForCore  ];
-			package: 'LibClang-Core' with: [
-				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
-			package: 'LibClang-Examples' with: [
-				spec requires: #('LibClang-Core' ). ];
-			package: 'LibClang-Tests' with: [
-				spec requires: #('LibClang-Core')].
-		spec 
-			group: 'default' with: #('All' );
-			group: 'All' 	with: #('Core' 'Examples' 'Tests');
-			group: 'Core' with: #('LibClang-Core' );
-			group: 'Examples' with: #('LibClang-Examples' );
-			group: 'Tests' with: #('LibClang-Tests'). ].
-
-]
-
-{ #category : #baselines }
-ConfigurationOfLibClang >> baseline12: spec [
-	<version: '1.2-baseline'>
-
-	spec for: #'common' do: [
-		spec blessing: #'baseline'.
-		spec repository: 'http://smalltalkhub.com/mc/CipT/LibClang/main'.
-		spec 
-			project: 'NativeBoost' with: [
-				spec
-					className: 'ConfigurationOfNativeBoost';
-					versionString: #'2.2';
-					repository: 'http://www.smalltalkhub.com/mc/Pharo/NativeBoost/main' ];
-			project: 'TalkFFIRuntime' with: [
-				spec
-					className: 'ConfigurationOfTalkFFI';
-					versionString: #'development';
-					loads: #('Runtime');
-					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
-		spec 
-			package: 'LibClang-FFI-Types' with: [
-				spec requires: #('NativeBoost'). ];
-			package: 'LibClang-FFI-Binding' with: [
-				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' );
-				postLoadDoIt: #postloadForCore  ];
-			package: 'LibClang-Core' with: [
-				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
-			package: 'LibClang-Examples' with: [
-				spec requires: #('LibClang-Core' ). ];
-			package: 'LibClang-Tests' with: [
-				spec requires: #('LibClang-Core')].
-		spec 
-			group: 'default' with: #('All' );
-			group: 'All' 	with: #('Core' 'Examples' 'Tests');
-			group: 'Core' with: #('LibClang-Core' );
-			group: 'Examples' with: #('LibClang-Examples' );
-			group: 'Tests' with: #('LibClang-Tests'). ].
-
-]
-
-{ #category : #baselines }
-ConfigurationOfLibClang >> baseline13: spec [
-	<version: '1.3-baseline'>
-
-	spec for: #'common' do: [
-		spec blessing: #'baseline'.
-		spec repository: 'http://smalltalkhub.com/mc/CipT/LibClang/main'.
-		spec 
-			project: 'TalkFFIRuntime' with: [
-				spec
-					className: 'ConfigurationOfTalkFFI';
-					versionString: #'development';
-					loads: #('Runtime');
-					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
-		spec 
-			package: 'LibClang-FFI-Types';
-			package: 'LibClang-FFI-Binding' with: [
-				spec requires: #('TalkFFIRuntime' 'LibClang-FFI-Types' );
-				postLoadDoIt: #postloadForCore  ];
-			package: 'LibClang-Core' with: [
-				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
-			package: 'LibClang-Examples' with: [
-				spec requires: #('LibClang-Core' ). ];
-			package: 'LibClang-Tests' with: [
-				spec requires: #('LibClang-Core')].
-		spec 
-			group: 'default' with: #('All' );
-			group: 'All' 	with: #('Core' 'Examples' 'Tests');
-			group: 'Core' with: #('LibClang-Core' );
-			group: 'Examples' with: #('LibClang-Examples' );
-			group: 'Tests' with: #('LibClang-Tests'). ].
 
 ]
 
@@ -273,17 +146,8 @@ ConfigurationOfLibClang >> baseline13: spec [
 ConfigurationOfLibClang >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.3-baseline'.
-	spec for: #'pharo3.x' version: '1.4'
+	spec for: #'common' version: '1.0'.
 
-
-
-]
-
-{ #category : #'post load' }
-ConfigurationOfLibClang >> postloadForCore [
-
-	(Smalltalk at: #LibClangMap) initialize.
 ]
 
 { #category : #accessing }
@@ -299,15 +163,6 @@ ConfigurationOfLibClang >> project [
 		project ]
 ]
 
-{ #category : #'symbolic versions' }
-ConfigurationOfLibClang >> stable: spec [
-	<symbolicVersion: #'stable'>
-
-	spec for: #'common' version: '1.2'.
-	spec for: #'pharo3.x' version: '1.4'
-
-]
-
 { #category : #versions }
 ConfigurationOfLibClang >> version10: spec [
 	<version: '1.0' imports: #('1.0-baseline' )>
@@ -318,94 +173,12 @@ ConfigurationOfLibClang >> version10: spec [
 		spec author: 'CiprianTeodorov'.
 		spec timestamp: '12/27/2012 14:14'.
 		spec 
-			project: 'NativeBoost' with: '1.9';
+			project: 'NativeBoost' with: #'stable';
 			project: 'TalkFFIRuntime' with: '1.0'.
 		spec 
 			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.1';
+			package: 'LibClang-Core' with: 'LibClang-Core-CiprianTeodorov.1';
 			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.1'. ].
-
-]
-
-{ #category : #versions }
-ConfigurationOfLibClang >> version11: spec [
-	<version: '1.1' imports: #('1.1-baseline' )>
-
-	spec for: #'common' do: [
-		spec blessing: #'development'.
-		spec description: 'development version'.
-		spec author: 'CiprianTeodorov'.
-		spec timestamp: '01/28/2013 22:29'.
-		spec 
-			project: 'NativeBoost' with: '1.9';
-			project: 'TalkFFIRuntime' with: '1.2'.
-		spec 
-			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
-			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.8';
-			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.1'. ].
-
-]
-
-{ #category : #versions }
-ConfigurationOfLibClang >> version12: spec [
-	<version: '1.2' imports: #('1.1-baseline' )>
-
-	spec for: #'common' do: [
-		spec blessing: #'development'.
-		spec description: 'development version'.
-		spec author: 'CiprianTeodorov'.
-		spec timestamp: '06/02/2013'.
-		spec 
-			project: 'NativeBoost' with: '2.1';
-			project: 'TalkFFIRuntime' with: '1.4'.
-		spec 
-			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
-			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.12';
-			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2';
-			package: 'LibClang-Tests' with: 'LibClang-Tests-CiprianTeodorov.5'. ].
-
-]
-
-{ #category : #versions }
-ConfigurationOfLibClang >> version13: spec [
-	<version: '1.3' imports: #('1.2-baseline' )>
-
-	spec for: #'common' do: [
-		spec blessing: #'development'.
-		spec description: 'development version'.
-		spec author: 'CiprianTeodorov'.
-		spec timestamp: '26/05/2013'.
-		spec 
-			project: 'NativeBoost' with: '2.2';
-			project: 'TalkFFIRuntime' with: '1.4'.
-		spec 
-			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.2';
-			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.12';
-			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2';
-			package: 'LibClang-Tests' with: 'LibClang-Tests-CiprianTeodorov.5'. ].
-
-]
-
-{ #category : #versions }
-ConfigurationOfLibClang >> version14: spec [
-	<version: '1.4' imports: #('1.3-baseline' )>
-
-	spec for: #'common' do: [
-		spec blessing: #'development'.
-		spec description: 'development version'.
-		spec author: 'CiprianTeodorov'.
-		spec timestamp: '03/16/2014'.
-		spec 
-			project: 'TalkFFIRuntime' with: '1.5'.
-		spec 
-			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.2';
-			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.12';
-			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2';
-			package: 'LibClang-Tests' with: 'LibClang-Tests-CiprianTeodorov.5'. ].
 
 ]
