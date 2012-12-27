@@ -1,6 +1,7 @@
 Class {
 	#name : #CXIdxObjCProtocolRefListInfoStruct,
 	#superclass : #NBExternalStructure,
+	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

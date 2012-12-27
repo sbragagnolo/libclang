@@ -1,6 +1,7 @@
 Class {
 	#name : #CXCursorStruct,
 	#superclass : #NBExternalStructure,
+	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

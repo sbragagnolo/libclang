@@ -1,6 +1,7 @@
 Class {
 	#name : #CXCompletionResultStruct,
 	#superclass : #NBExternalStructure,
+	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

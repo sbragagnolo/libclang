@@ -1,6 +1,7 @@
 Class {
 	#name : #CXIdxLocStruct,
 	#superclass : #NBExternalStructure,
+	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 
