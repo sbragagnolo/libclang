@@ -16,9 +16,9 @@ CLIndex class >> default [
 	^ self new create 
 ]
 
-{ #category : #finalization }
+{ #category : #'as yet unclassified' }
 CLIndex class >> finalizeResourceData: aHandle [
-	aHandle isNull
+	aHandle isNil
 		ifFalse: [ self clang disposeIndex: aHandle ]
 ]
 
