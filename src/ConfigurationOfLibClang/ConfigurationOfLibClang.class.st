@@ -123,8 +123,9 @@ ConfigurationOfLibClang >> baseline10: spec [
 					repository: 'http://www.squeaksource.com/NativeBoost' ];
 			project: 'TalkFFIRuntime' with: [
 				spec
-					className: 'ConfigurationOfTalkFFIRuntime';
+					className: 'ConfigurationOfTalkFFI';
 					versionString: #'bleedingEdge';
+					loads: #('Runtime');
 					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
 		spec 
 			package: 'LibClang-FFI-Types' with: [
