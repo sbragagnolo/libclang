@@ -7,12 +7,13 @@ Class {
 		'handle',
 		'filename',
 		'index',
-		'options'
+		'options',
+		'numDiagnostics'
 	],
 	#category : #'LibClang-Core'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #finalization }
 CLTranslationUnit class >> finalizeResourceData: aHandle [
 	self clang disposeTranslationUnit: aHandle
 ]
@@ -28,6 +29,25 @@ CLTranslationUnit class >> handle: aHandle index: aCLIndex filename: aFileName [
 { #category : #'as yet unclassified' }
 CLTranslationUnit >> cursor [
 	^ self clang getTranslationUnitCursor: handle
+]
+
+{ #category : #diagnostics }
+CLTranslationUnit >> diagnosticAt: anIndex [
+	| max |
+	max := self numDiagnostics.
+	(anIndex < 1 or: [ anIndex >= max ])
+		ifTrue: [ 
+			^ SubscriptOutOfBounds
+				signalFor: anIndex
+				lowerBound: 1
+				upperBound: max 
+				in: self ].
+	^ CLDiagnostic new handle: (self clang getDiagnostic: handle Index: anIndex - 1)
+]
+
+{ #category : #diagnostics }
+CLTranslationUnit >> diagnosticSet [
+	^CLDiagnosticSet new handle: (self clang getDiagnosticSetFromTU: handle)
 ]
 
 { #category : #accessing }
@@ -60,6 +80,13 @@ CLTranslationUnit >> index [
 { #category : #accessing }
 CLTranslationUnit >> index: anObject [
 	index := anObject
+]
+
+{ #category : #diagnostics }
+CLTranslationUnit >> numDiagnostics [
+	^ numDiagnostics isNil
+		ifTrue: [ numDiagnostics := self clang getNumDiagnostics: handle ]
+		ifFalse: [ numDiagnostics ]
 ]
 
 { #category : #accessing }
