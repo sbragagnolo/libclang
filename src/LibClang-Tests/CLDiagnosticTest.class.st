@@ -23,15 +23,6 @@ CLDiagnosticTest >> testCategoryText [
 ]
 
 { #category : #'as yet unclassified' }
-CLDiagnosticTest >> testDisableOption [
-	|tu diag|
-	tu := CLTranslationUnit source: 'int f(int i) { return 7; }' allWarnings: true.
-	self assert: tu numDiagnostics = 1.
-	diag := tu diagnosticAt: 1. 
-	self assert: diag disableOption = '-Wno-unused-parameter'.
-]
-
-{ #category : #'as yet unclassified' }
 CLDiagnosticTest >> testFixItAt [
 	| tu diag fix |
 	tu := CLTranslationUnit source: 'struct { int f0; } x = { f0 : 1 };'.
@@ -66,15 +57,6 @@ CLDiagnosticTest >> testNumFixIts [
 	self assert: (diag spelling beginsWith: 'use of GNU old-style').
 	self assert: diag numFixIts = 1.
 	
-]
-
-{ #category : #'as yet unclassified' }
-CLDiagnosticTest >> testOption [
-	|tu diag|
-	tu := CLTranslationUnit source: 'int f(int i) { return 7; }' allWarnings: true.
-	self assert: tu numDiagnostics = 1.
-	diag := tu diagnosticAt: 1.
-	self assert: diag option = '-Wunused-parameter'.
 ]
 
 { #category : #'as yet unclassified' }
