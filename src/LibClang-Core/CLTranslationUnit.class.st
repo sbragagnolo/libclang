@@ -13,17 +13,103 @@ Class {
 	#category : #'LibClang-Core'
 }
 
+{ #category : #private }
+CLTranslationUnit class >> argsFrom: anArrayOfStrings [
+	| argsP |
+	argsP := NativeBoost allocate: anArrayOfStrings size * NativeBoost forCurrentPlatform pointerSize.
+	anArrayOfStrings
+		withIndexDo: [ :arg :idx | 
+			argsP
+				nbInt32AtOffset: (idx - 1) * NativeBoost forCurrentPlatform pointerSize
+				put: (NBExternalAddress fromString: arg) value ].
+	^ {argsP.
+	(anArrayOfStrings size)}
+]
+
 { #category : #finalization }
 CLTranslationUnit class >> finalizeResourceData: aHandle [
 	self clang disposeTranslationUnit: aHandle
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
+CLTranslationUnit class >> fromSource: filename args: anArrayOfStrings unsavedFiles: unsavedFiles options: options index: anIndex [
+	| args argsP unsavedArray handler index |
+	args := self argsFrom: anArrayOfStrings.
+	unsavedArray := self unsavedFilesArray: unsavedFiles.
+	index := CLIndex default.
+	handler := self clang
+		parseTranslationUnit: index handle
+		source_filename: filename
+		command_line_args: args first
+		num_command_line_args: args second
+		unsaved_files: (unsavedArray at: 1)
+		num_unsaved_files: unsavedArray size
+		options: options.
+	^ self handle: handler index: index filename: filename
+]
+
+{ #category : #'instance creation' }
 CLTranslationUnit class >> handle: aHandle index: aCLIndex filename: aFileName [
 	^ self new
 		handle: aHandle;
 		index: aCLIndex;
 		filename: aFileName
+]
+
+{ #category : #'instance creation' }
+CLTranslationUnit class >> source: aString [
+	^ self source: aString lang: #c allWarnings: false
+]
+
+{ #category : #'instance creation' }
+CLTranslationUnit class >> source: aString allWarnings: aBoolean [
+	^ self source: aString lang: #c allWarnings: aBoolean
+]
+
+{ #category : #'instance creation' }
+CLTranslationUnit class >> source: aString lang: aLanguage allWarnings: hasWarnings [
+	| args fname |
+	args := OrderedCollection new.
+	aLanguage = #cpp
+		ifTrue: [ 
+			fname := 't.cpp'.
+			args add: '-std=c++11 ' ]
+		ifFalse: [ 
+			aLanguage = #objc
+				ifTrue: [ fname := 't.m' ]
+				ifFalse: [ 
+					aLanguage = #c
+						ifTrue: [ fname := 't.c' ]
+						ifFalse: [ self error: 'unknown language ' ] ] ].
+	hasWarnings
+		ifTrue: [ 
+			args
+				add: '-Wall';
+				add: '-Wextra' ].
+	^ self
+		fromSource: fname
+		args: args
+		unsavedFiles: {(fname -> aString)}
+		options: 0
+		index: nil
+]
+
+{ #category : #private }
+CLTranslationUnit class >> unsavedFilesArray: anArrayOfAssociations [
+	| unsavedArrayType unsavedArray |
+	unsavedArrayType := NBExternalArray ofType: #CXUnsavedFileStruct.
+	unsavedArray := unsavedArrayType new: anArrayOfAssociations size.
+	anArrayOfAssociations
+		withIndexDo: [ :uF :idx | 
+			unsavedArray
+				at: idx
+				put:
+					(CXUnsavedFileStruct new
+						Filename: (NBExternalAddress fromString: uF key);
+						Contents: (NBExternalAddress fromString: uF value);
+						Length: uF value size;
+						yourself) ].
+	^ unsavedArray
 ]
 
 { #category : #'as yet unclassified' }
@@ -35,7 +121,7 @@ CLTranslationUnit >> cursor [
 CLTranslationUnit >> diagnosticAt: anIndex [
 	| max |
 	max := self numDiagnostics.
-	(anIndex < 1 or: [ anIndex >= max ])
+	(anIndex < 1 or: [ anIndex > max ])
 		ifTrue: [ 
 			^ SubscriptOutOfBounds
 				signalFor: anIndex

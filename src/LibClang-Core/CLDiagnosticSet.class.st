@@ -34,7 +34,7 @@ CLDiagnosticSet >> at: anIndex [
 
 	| max |
 	max := self size.
-	(anIndex < 1 or: [ anIndex >= max ])
+	(anIndex < 1 or: [ anIndex > max ])
 		ifTrue: [ 
 			^ SubscriptOutOfBounds
 				signalFor: anIndex
