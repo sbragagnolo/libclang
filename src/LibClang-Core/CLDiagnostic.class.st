@@ -44,6 +44,16 @@ CLDiagnostic >> defaultDiagnosticFormat [
 ]
 
 { #category : #accessing }
+CLDiagnostic >> disableOption [
+	| cxstr str |
+	cxstr := CXStringStruct new.
+	self clang getDiagnosticOption: handle Disable: cxstr.
+	str := cxstr asString.
+	cxstr disposeString.
+	^ str
+]
+
+{ #category : #accessing }
 CLDiagnostic >> fixitAt: anIndex [
 	| max cxstr str range |
 	max := self numFixIts.
@@ -88,6 +98,17 @@ CLDiagnostic >> numFixIts [
 { #category : #accessing }
 CLDiagnostic >> numRanges [
 	^self clang getDiagnosticNumRanges: handle
+]
+
+{ #category : #accessing }
+CLDiagnostic >> option [
+	| cxstr str bogus|
+	bogus := CXStringStruct new.
+	cxstr := self clang getDiagnosticOption: handle Disable: bogus.
+	bogus disposeString.
+	str := cxstr asString.
+	cxstr disposeString.
+	^ str
 ]
 
 { #category : #accessing }
