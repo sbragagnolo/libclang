@@ -36,7 +36,8 @@ CLTranslationUnit class >> fromSource: filename args: anArrayOfStrings unsavedFi
 	| args argsP unsavedArray handler index |
 	args := self argsFrom: anArrayOfStrings.
 	unsavedArray := self unsavedFilesArray: unsavedFiles.
-	index := CLIndex default.
+	index isNil
+		ifTrue: [ index := CLIndex default ].
 	handler := self clang
 		parseTranslationUnit: index handle
 		source_filename: filename
