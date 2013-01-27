@@ -69,6 +69,11 @@ CXCursorStruct >> isUnionDecl [
 ]
 
 { #category : #'*libclang-core-accessing' }
+CXCursorStruct >> linkage [
+	^ self clang getCursorLinkage: self
+]
+
+{ #category : #'*libclang-core-accessing' }
 CXCursorStruct >> location [
 	^ self clang getCursorLocation: self
 ]
