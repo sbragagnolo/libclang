@@ -145,6 +145,43 @@ ConfigurationOfLibClang >> baseline10: spec [
 
 ]
 
+{ #category : #baselines }
+ConfigurationOfLibClang >> baseline11: spec [
+	<version: '1.1-baseline'>
+
+	spec for: #'common' do: [
+		spec blessing: #'baseline'.
+		spec repository: 'http://smalltalkhub.com/mc/CipT/LibClang/main'.
+		spec 
+			project: 'NativeBoost' with: [
+				spec
+					className: 'ConfigurationOfNativeBoost';
+					versionString: #'1.9';
+					repository: 'http://www.squeaksource.com/NativeBoost' ];
+			project: 'TalkFFIRuntime' with: [
+				spec
+					className: 'ConfigurationOfTalkFFI';
+					versionString: #'development';
+					loads: #('Runtime');
+					repository: 'http://smalltalkhub.com/mc/CipT/TalkFFI/main' ].
+		spec 
+			package: 'LibClang-FFI-Types' with: [
+				spec requires: #('NativeBoost'). ];
+			package: 'LibClang-FFI-Binding' with: [
+				spec requires: #('NativeBoost' 'TalkFFIRuntime' 'LibClang-FFI-Types' );
+				postLoadDoIt: #postloadForCore  ];
+			package: 'LibClang-Core' with: [
+				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
+			package: 'LibClang-Examples' with: [
+				spec requires: #('LibClang-Core' ). ].
+		spec 
+			group: 'default' with: #('All' );
+			group: 'All' 	with: #('Core' 'Examples');
+			group: 'Core' with: #('LibClang-Core' );
+			group: 'Examples' with: #('LibClang-Examples' ). ].
+
+]
+
 { #category : #'symbolic versions' }
 ConfigurationOfLibClang >> development: spec [
 	<symbolicVersion: #'development'>
@@ -194,7 +231,7 @@ ConfigurationOfLibClang >> version10: spec [
 
 { #category : #versions }
 ConfigurationOfLibClang >> version11: spec [
-	<version: '1.1' imports: #('1.0-baseline' )>
+	<version: '1.1' imports: #('1.1-baseline' )>
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
