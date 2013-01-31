@@ -156,8 +156,8 @@ ConfigurationOfLibClang >> baseline11: spec [
 			project: 'NativeBoost' with: [
 				spec
 					className: 'ConfigurationOfNativeBoost';
-					versionString: #'1.9';
-					repository: 'http://www.squeaksource.com/NativeBoost' ];
+					versionString: #'2.0';
+					repository: 'http://www.smalltalkhub.com/mc/Pharo/NativeBoost/main' ];
 			project: 'TalkFFIRuntime' with: [
 				spec
 					className: 'ConfigurationOfTalkFFI';
