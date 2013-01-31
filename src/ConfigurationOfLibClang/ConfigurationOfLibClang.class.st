@@ -240,7 +240,7 @@ ConfigurationOfLibClang >> version11: spec [
 		spec timestamp: '01/28/2013 22:29'.
 		spec 
 			project: 'NativeBoost' with: '1.9';
-			project: 'TalkFFIRuntime' with: '1.0'.
+			project: 'TalkFFIRuntime' with: '1.2'.
 		spec 
 			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
