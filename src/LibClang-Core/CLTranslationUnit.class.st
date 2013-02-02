@@ -33,11 +33,11 @@ CLTranslationUnit class >> finalizeResourceData: aHandle [
 
 { #category : #'instance creation' }
 CLTranslationUnit class >> fromSource: filename args: anArrayOfStrings unsavedFiles: unsavedFiles options: options index: anIndex [
-	| args argsP unsavedArray handler index |
+	| args unsavedArray handler index |
 	args := self argsFrom: anArrayOfStrings.
 	unsavedArray := self unsavedFilesArray: unsavedFiles.
-	index isNil
-		ifTrue: [ index := CLIndex default ].
+	index := anIndex.
+	index ifNil: [ index := CLIndex default ].
 	handler := self clang
 		parseTranslationUnit: index handle
 		source_filename: filename
@@ -71,6 +71,7 @@ CLTranslationUnit class >> source: aString allWarnings: aBoolean [
 CLTranslationUnit class >> source: aString lang: aLanguage allWarnings: hasWarnings [
 	| args fname |
 	args := OrderedCollection new.
+	fname := 't.c'.
 	aLanguage = #cpp
 		ifTrue: [ 
 			fname := 't.cpp'.

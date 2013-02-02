@@ -12,7 +12,7 @@ CXSourceLocationStruct >> line [
 
 { #category : #'*libclang-core' }
 CXSourceLocationStruct >> presumedLocation [
-	| fileValue line column cstr fileName |
+	| fileValue line column  fileName |
 	fileValue := CXStringStruct new.
 	line := ByteArray new: 4.
 	column := ByteArray new: 4.
