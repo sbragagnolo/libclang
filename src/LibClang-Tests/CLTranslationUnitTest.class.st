@@ -24,7 +24,7 @@ CLTranslationUnitTest >> testDiagnosticSet [
 
 { #category : #diagnostics }
 CLTranslationUnitTest >> testNumDiagnostics [
-	| tu dSet |
+	| tu  |
 	tu := CLTranslationUnit source: 'int f0() { } '.
 	self assert: tu numDiagnostics = 1
 ]
