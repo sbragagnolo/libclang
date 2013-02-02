@@ -30,7 +30,6 @@ LibClangExample class >> stdlibHFunctions [
 
 { #category : #'as yet unclassified' }
 LibClangExample >> extractFunctions: aFileName [
-	| block callback return |
 	self translationUnit: aFileName do: [ :tu | tu cursor visitChildren: self extractFunctionsCb ].
 	^functions 
 ]
@@ -52,7 +51,7 @@ LibClangExample >> initialize [
 
 { #category : #'as yet unclassified' }
 LibClangExample >> translationUnit: aFileName do: aBlock [
-	| idx tu result cursor ck |
+	| idx tu  |
 	idx := CLIndex default.
 	tu := idx translationUnitFromSource: aFileName options: {}.
 	^ aBlock value: tu
