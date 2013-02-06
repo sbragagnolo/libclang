@@ -186,7 +186,7 @@ ConfigurationOfLibClang >> baseline11: spec [
 ConfigurationOfLibClang >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.1'.
+	spec for: #'common' version: '1.2'.
 
 ]
 
@@ -246,5 +246,25 @@ ConfigurationOfLibClang >> version11: spec [
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
 			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.8';
 			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.1'. ].
+
+]
+
+{ #category : #versions }
+ConfigurationOfLibClang >> version12: spec [
+	<version: '1.2' imports: #('1.1-baseline' )>
+
+	spec for: #'common' do: [
+		spec blessing: #'development'.
+		spec description: 'development version'.
+		spec author: 'CiprianTeodorov'.
+		spec timestamp: '06/02/2013'.
+		spec 
+			project: 'NativeBoost' with: '2.1';
+			project: 'TalkFFIRuntime' with: '1.3'.
+		spec 
+			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
+			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
+			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.9';
+			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2'. ].
 
 ]
