@@ -193,7 +193,7 @@ ConfigurationOfLibClang >> development: spec [
 { #category : #'post load' }
 ConfigurationOfLibClang >> postloadForCore [
 
-	LibClangMap initialize.
+	(Smalltalk at: #LibClangMap) initialize.
 ]
 
 { #category : #accessing }
