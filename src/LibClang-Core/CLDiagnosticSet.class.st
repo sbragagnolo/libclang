@@ -44,6 +44,13 @@ CLDiagnosticSet >> at: anIndex [
 	^ CLDiagnostic new handle: (self clang getDiagnosticInSet: handle Index: anIndex - 1)
 ]
 
+{ #category : #enumerating }
+CLDiagnosticSet >> do: aBlock [
+
+	1 to: self size do:
+		[:index | aBlock value: (self at: index)]
+]
+
 { #category : #accessing }
 CLDiagnosticSet >> handle [
 	^ handle
@@ -54,6 +61,11 @@ CLDiagnosticSet >> handle: anObject [
 	handle := anObject.
 	handle ifNil: [ ^ self error: 'Invalid CLDiagnosticSet handle' ].
 	NBExternalResourceManager addResource: self data: handle
+]
+
+{ #category : #accessing }
+CLDiagnosticSet >> isEmpty [
+	^self size = 0
 ]
 
 { #category : #accessing }
