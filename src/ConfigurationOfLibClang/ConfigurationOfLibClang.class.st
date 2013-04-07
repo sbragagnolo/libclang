@@ -264,7 +264,7 @@ ConfigurationOfLibClang >> version12: spec [
 		spec 
 			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
-			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.9';
+			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.11';
 			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2'. ].
 
 ]
