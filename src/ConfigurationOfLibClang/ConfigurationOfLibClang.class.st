@@ -188,7 +188,7 @@ ConfigurationOfLibClang >> baseline11: spec [
 				spec requires: #('LibClang-Core')].
 		spec 
 			group: 'default' with: #('All' );
-			group: 'All' 	with: #('Core' 'Examples');
+			group: 'All' 	with: #('Core' 'Examples' 'Tests');
 			group: 'Core' with: #('LibClang-Core' );
 			group: 'Examples' with: #('LibClang-Examples' );
 			group: 'Tests' with: #('LibClang-Tests'). ].
