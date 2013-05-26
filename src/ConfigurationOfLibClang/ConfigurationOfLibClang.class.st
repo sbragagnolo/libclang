@@ -88,6 +88,16 @@ ConfigurationOfLibClang class >> loadDevelopment [
 	^(self project version: #development) load
 ]
 
+{ #category : #loading }
+ConfigurationOfLibClang class >> loadStable [
+	"Load the #stable version defined for this platform. "
+
+	"self loadStable"
+
+	<apiDocumentation>
+	^(self project version: #stable) load
+]
+
 { #category : #accessing }
 ConfigurationOfLibClang class >> project [
 
