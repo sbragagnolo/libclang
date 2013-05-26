@@ -249,6 +249,14 @@ ConfigurationOfLibClang >> project [
 		project ]
 ]
 
+{ #category : #'symbolic versions' }
+ConfigurationOfLibClang >> stable: spec [
+	<symbolicVersion: #'stable'>
+
+	spec for: #'common' version: '1.2'.
+
+]
+
 { #category : #versions }
 ConfigurationOfLibClang >> version10: spec [
 	<version: '1.0' imports: #('1.0-baseline' )>
