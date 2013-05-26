@@ -183,12 +183,15 @@ ConfigurationOfLibClang >> baseline11: spec [
 			package: 'LibClang-Core' with: [
 				spec requires: #('LibClang-FFI-Types' 'LibClang-FFI-Binding' ). ];
 			package: 'LibClang-Examples' with: [
-				spec requires: #('LibClang-Core' ). ].
+				spec requires: #('LibClang-Core' ). ];
+			package: 'LibClang-Tests' with: [
+				spec requires: #('LibClang-Core')].
 		spec 
 			group: 'default' with: #('All' );
 			group: 'All' 	with: #('Core' 'Examples');
 			group: 'Core' with: #('LibClang-Core' );
-			group: 'Examples' with: #('LibClang-Examples' ). ].
+			group: 'Examples' with: #('LibClang-Examples' );
+			group: 'Tests' with: #('LibClang-Tests'). ].
 
 ]
 
@@ -323,7 +326,8 @@ ConfigurationOfLibClang >> version12: spec [
 			package: 'LibClang-FFI-Types' with: 'LibClang-FFI-Types-CiprianTeodorov.1';
 			package: 'LibClang-FFI-Binding' with: 'LibClang-FFI-Binding-CiprianTeodorov.1';
 			package: 'LibClang-Core' with:  'LibClang-Core-CiprianTeodorov.11';
-			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2'. ].
+			package: 'LibClang-Examples' with: 'LibClang-Examples-CiprianTeodorov.2';
+			package: 'LibClang-Tests' with: 'LibClang-Tests-CiprianTeodorov.5'. ].
 
 ]
 
