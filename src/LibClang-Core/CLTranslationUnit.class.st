@@ -28,7 +28,7 @@ CLTranslationUnit class >> argsFrom: anArrayOfStrings [
 
 { #category : #finalization }
 CLTranslationUnit class >> finalizeResourceData: aHandle [
-	self clang disposeTranslationUnit: aHandle
+	aHandle isNull ifFalse: [self clang disposeTranslationUnit: aHandle]
 ]
 
 { #category : #'instance creation' }

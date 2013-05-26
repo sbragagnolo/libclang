@@ -12,7 +12,8 @@ Class {
 
 { #category : #finalization }
 CLDiagnosticSet class >> finalizeResourceData: aHandle [
-	self clang disposeDiagnosticSet: aHandle
+	
+	aHandle isNull ifFalse: [self clang disposeDiagnosticSet: aHandle]
 ]
 
 { #category : #api }
