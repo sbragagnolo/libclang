@@ -18,7 +18,7 @@ CLIndex class >> default [
 
 { #category : #finalization }
 CLIndex class >> finalizeResourceData: aHandle [
-	aHandle isNil
+	aHandle isNull
 		ifFalse: [ self clang disposeIndex: aHandle ]
 ]
 
