@@ -1,7 +1,6 @@
 Class {
 	#name : #CXIdxObjCContainerDeclInfoStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

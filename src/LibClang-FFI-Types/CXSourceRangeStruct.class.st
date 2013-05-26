@@ -1,7 +1,6 @@
 Class {
 	#name : #CXSourceRangeStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

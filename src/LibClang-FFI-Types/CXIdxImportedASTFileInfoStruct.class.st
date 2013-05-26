@@ -1,7 +1,6 @@
 Class {
 	#name : #CXIdxImportedASTFileInfoStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 
