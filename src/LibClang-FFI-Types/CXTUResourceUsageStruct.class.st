@@ -1,7 +1,6 @@
 Class {
 	#name : #CXTUResourceUsageStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

@@ -1,7 +1,6 @@
 Class {
 	#name : #CXUnsavedFileStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 

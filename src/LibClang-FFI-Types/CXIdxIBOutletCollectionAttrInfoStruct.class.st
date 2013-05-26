@@ -1,7 +1,6 @@
 Class {
 	#name : #CXIdxIBOutletCollectionAttrInfoStruct,
 	#superclass : #NBExternalStructure,
-	#type : #bytes,
 	#category : #'LibClang-FFI-Types'
 }
 
