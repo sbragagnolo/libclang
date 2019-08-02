@@ -101,27 +101,20 @@ LibClangMap class >> initializeUnions [
 
 ]
 
-{ #category : #'library path' }
-LibClangMap class >> libraryNameOrHandle [
-	NativeBoost platformId = 2 
-		ifTrue:[^'/Users/ciprian/Playfield/llvm-3.1/install_clang-x86_dbg/lib/libclang.dylib'].
-	self error: 'define your own path'
-]
-
 { #category : #'type map' }
 LibClangMap class >> typeMap [
 	^#(CXTUResourceUsage 'CXTUResourceUsageStruct'
 CXInclusionVisitor 'CXInclusionVisitorCb'
 CXIdxAttrKind 'CXIdxAttrKindEnum'
-CXIndex 'void *'
+CXIndex 'FFIVoid *'
 CXIdxBaseClassInfo 'CXIdxBaseClassInfoStruct'
 CXCursorAndRangeVisitor 'CXCursorAndRangeVisitorStruct'
 CXIdxEntityKind 'CXIdxEntityKindEnum'
 CXIdxAttrInfo 'CXIdxAttrInfoStruct'
-CXIdxClientEntity 'void *'
+CXIdxClientEntity 'FFIVoid *'
 CXCursorVisitorBlock '"unsupported"'
 CXString 'CXStringStruct'
-CXtime_t 'int'
+CXtime_t 'FFIInt32'
 CXIdxEntityInfo 'CXIdxEntityInfoStruct'
 CXIdxObjCCategoryDeclInfo 'CXIdxObjCCategoryDeclInfoStruct'
 CXIdxCXXClassDeclInfo 'CXIdxCXXClassDeclInfoStruct'
@@ -129,32 +122,32 @@ CXIdxDeclInfo 'CXIdxDeclInfoStruct'
 CXIdxObjCProtocolRefInfo 'CXIdxObjCProtocolRefInfoStruct'
 CXCursorVisitor 'CXCursorVisitorCb'
 CXToken 'CXTokenStruct'
-CXDiagnosticSet 'void *'
+CXDiagnosticSet 'FFIVoid *'
 CXType 'CXTypeStruct'
 CXIdxEntityLanguage 'CXIdxEntityLanguageEnum'
-CXFile 'void *'
+CXFile 'FFIVoid *'
 CXIdxLoc 'CXIdxLocStruct'
 CXTokenKind 'CXTokenKindEnum'
-CXDiagnostic 'void *'
-CXClientData 'void *'
+CXDiagnostic 'FFIVoid *'
+CXClientData 'FFIVoid *'
 CXIdxObjCProtocolRefListInfo 'CXIdxObjCProtocolRefListInfoStruct'
-CXCompletionString 'void *'
+CXCompletionString 'FFIVoid *'
 CXSourceRange 'CXSourceRangeStruct'
 CXIdxObjCPropertyDeclInfo 'CXIdxObjCPropertyDeclInfoStruct'
 CXCursorAndRangeVisitorBlock '"unsupported"'
 CXIdxContainerInfo 'CXIdxContainerInfoStruct'
 CXSourceLocation 'CXSourceLocationStruct'
-CXRemapping 'void *'
+CXRemapping 'FFIVoid *'
 CXCodeCompleteResults 'CXCodeCompleteResultsStruct'
 CXTUResourceUsageEntry 'CXTUResourceUsageEntryStruct'
 CXCursor 'CXCursorStruct'
-CXIndexAction 'void *'
-CXIdxClientContainer 'void *'
+CXIndexAction 'FFIVoid *'
+CXIdxClientContainer 'FFIVoid *'
 CXIdxObjCInterfaceDeclInfo 'CXIdxObjCInterfaceDeclInfoStruct'
-CXIdxClientFile 'void *'
-CXTranslationUnit 'void * *'
+CXIdxClientFile 'FFIVoid *'
+CXTranslationUnit 'FFIVoid * *'
 CXIdxObjCContainerKind 'CXIdxObjCContainerKindEnum'
-CXCursorSet 'void * *'
+CXCursorSet 'FFIVoid * *'
 CXIdxEntityRefKind 'CXIdxEntityRefKindEnum'
 CXIdxEntityCXXTemplateKind 'CXIdxEntityCXXTemplateKindEnum'
 CXCompletionResult 'CXCompletionResultStruct'
@@ -162,4 +155,19 @@ CXIndexerCallbacks 'CXIndexerCallbacksStruct'
 CXIdxObjCContainerDeclInfo 'CXIdxObjCContainerDeclInfoStruct'
 CXIdxIBOutletCollectionAttrInfo 'CXIdxIBOutletCollectionAttrInfoStruct'
 )
+]
+
+{ #category : #'accessing platform' }
+LibClangMap >> unix32ModuleName [
+	self error: 'Not yet there'
+]
+
+{ #category : #'accessing platform' }
+LibClangMap >> unix64ModuleName [
+	^ 'libclang-3.8.0.so'
+]
+
+{ #category : #'accessing platform' }
+LibClangMap >> unixModuleName [
+	^ self unix64ModuleName
 ]
