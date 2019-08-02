@@ -10,6 +10,30 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXCXXAccessSpecifierEnum class >> CX_CXXInvalidAccessSpecifier [
+	"This method was automatically generated"
+	^ CX_CXXInvalidAccessSpecifier
+]
+
+{ #category : #'accessing enum' }
+CXCXXAccessSpecifierEnum class >> CX_CXXPrivate [
+	"This method was automatically generated"
+	^ CX_CXXPrivate
+]
+
+{ #category : #'accessing enum' }
+CXCXXAccessSpecifierEnum class >> CX_CXXProtected [
+	"This method was automatically generated"
+	^ CX_CXXProtected
+]
+
+{ #category : #'accessing enum' }
+CXCXXAccessSpecifierEnum class >> CX_CXXPublic [
+	"This method was automatically generated"
+	^ CX_CXXPublic
+]
+
 { #category : #'enum declaration' }
 CXCXXAccessSpecifierEnum class >> enumDecl [
 	^#(

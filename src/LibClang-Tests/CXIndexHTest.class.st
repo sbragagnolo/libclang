@@ -7,7 +7,7 @@ Class {
 { #category : #'as yet unclassified' }
 CXIndexHTest >> testClangVersion [
 
-	self assert: (CXIndexH  clangVersion beginsWith: 'clang version 3.1')
+	self assert: (CXIndexH  clangVersion beginsWith: 'clang version 3.8')
 ]
 
 { #category : #'as yet unclassified' }

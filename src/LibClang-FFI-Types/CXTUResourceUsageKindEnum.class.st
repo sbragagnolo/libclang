@@ -24,6 +24,114 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_AST [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_AST
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_AST_SideTables [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_AST_SideTables
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_ExternalASTSource_Membuffer_MMap [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_ExternalASTSource_Membuffer_MMap
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_First [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_First
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_GlobalCompletionResults [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_GlobalCompletionResults
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_Identifiers [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_Identifiers
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_Last [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_Last
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_MEMORY_IN_BYTES_END [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_MEMORY_IN_BYTES_END
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_PreprocessingRecord [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_PreprocessingRecord
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_Preprocessor [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_Preprocessor
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_Preprocessor_HeaderSearch [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_Preprocessor_HeaderSearch
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_Selectors [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_Selectors
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_SourceManagerContentCache [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_SourceManagerContentCache
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_SourceManager_DataStructures [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_SourceManager_DataStructures
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_SourceManager_Membuffer_MMap [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_SourceManager_Membuffer_MMap
+]
+
+{ #category : #'accessing enum' }
+CXTUResourceUsageKindEnum class >> CXTUResourceUsage_SourceManager_Membuffer_Malloc [
+	"This method was automatically generated"
+	^ CXTUResourceUsage_SourceManager_Membuffer_Malloc
+]
+
 { #category : #'enum declaration' }
 CXTUResourceUsageKindEnum class >> enumDecl [
 	^#(

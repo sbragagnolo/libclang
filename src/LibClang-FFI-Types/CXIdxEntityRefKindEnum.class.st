@@ -8,6 +8,18 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXIdxEntityRefKindEnum class >> CXIdxEntityRef_Direct [
+	"This method was automatically generated"
+	^ CXIdxEntityRef_Direct
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityRefKindEnum class >> CXIdxEntityRef_Implicit [
+	"This method was automatically generated"
+	^ CXIdxEntityRef_Implicit
+]
+
 { #category : #'enum declaration' }
 CXIdxEntityRefKindEnum class >> enumDecl [
 	^#(

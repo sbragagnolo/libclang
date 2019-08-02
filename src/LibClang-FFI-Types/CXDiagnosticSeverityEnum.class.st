@@ -11,6 +11,36 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXDiagnosticSeverityEnum class >> CXDiagnostic_Error [
+	"This method was automatically generated"
+	^ CXDiagnostic_Error
+]
+
+{ #category : #'accessing enum' }
+CXDiagnosticSeverityEnum class >> CXDiagnostic_Fatal [
+	"This method was automatically generated"
+	^ CXDiagnostic_Fatal
+]
+
+{ #category : #'accessing enum' }
+CXDiagnosticSeverityEnum class >> CXDiagnostic_Ignored [
+	"This method was automatically generated"
+	^ CXDiagnostic_Ignored
+]
+
+{ #category : #'accessing enum' }
+CXDiagnosticSeverityEnum class >> CXDiagnostic_Note [
+	"This method was automatically generated"
+	^ CXDiagnostic_Note
+]
+
+{ #category : #'accessing enum' }
+CXDiagnosticSeverityEnum class >> CXDiagnostic_Warning [
+	"This method was automatically generated"
+	^ CXDiagnostic_Warning
+]
+
 { #category : #'enum declaration' }
 CXDiagnosticSeverityEnum class >> enumDecl [
 	^#(

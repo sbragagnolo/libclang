@@ -1121,6 +1121,7 @@ CXCursorKindEnum class >> CXCursor_WhileStmt [
 
 { #category : #'enum declaration' }
 CXCursorKindEnum class >> enumDecl [
+ 
 	^#(
 	CXCursor_FirstDecl 1
 	CXCursor_UnexposedDecl 1

@@ -32,6 +32,162 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXClass [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXClass
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXConstructor [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXConstructor
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXConversionFunction [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXConversionFunction
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXDestructor [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXDestructor
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXInstanceMethod [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXInstanceMethod
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXNamespace [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXNamespace
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXNamespaceAlias [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXNamespaceAlias
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXStaticMethod [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXStaticMethod
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXStaticVariable [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXStaticVariable
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_CXXTypeAlias [
+	"This method was automatically generated"
+	^ CXIdxEntity_CXXTypeAlias
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Enum [
+	"This method was automatically generated"
+	^ CXIdxEntity_Enum
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_EnumConstant [
+	"This method was automatically generated"
+	^ CXIdxEntity_EnumConstant
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Field [
+	"This method was automatically generated"
+	^ CXIdxEntity_Field
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Function [
+	"This method was automatically generated"
+	^ CXIdxEntity_Function
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCCategory [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCCategory
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCClass [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCClass
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCClassMethod [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCClassMethod
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCInstanceMethod [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCInstanceMethod
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCIvar [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCIvar
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCProperty [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCProperty
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_ObjCProtocol [
+	"This method was automatically generated"
+	^ CXIdxEntity_ObjCProtocol
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Struct [
+	"This method was automatically generated"
+	^ CXIdxEntity_Struct
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Typedef [
+	"This method was automatically generated"
+	^ CXIdxEntity_Typedef
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Unexposed [
+	"This method was automatically generated"
+	^ CXIdxEntity_Unexposed
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Union [
+	"This method was automatically generated"
+	^ CXIdxEntity_Union
+]
+
+{ #category : #'accessing enum' }
+CXIdxEntityKindEnum class >> CXIdxEntity_Variable [
+	"This method was automatically generated"
+	^ CXIdxEntity_Variable
+]
+
 { #category : #'enum declaration' }
 CXIdxEntityKindEnum class >> enumDecl [
 	^#(

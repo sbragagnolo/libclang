@@ -11,6 +11,36 @@ Class {
 	#category : #'LibClang-FFI-Types'
 }
 
+{ #category : #'accessing enum' }
+CXTokenKindEnum class >> CXToken_Comment [
+	"This method was automatically generated"
+	^ CXToken_Comment
+]
+
+{ #category : #'accessing enum' }
+CXTokenKindEnum class >> CXToken_Identifier [
+	"This method was automatically generated"
+	^ CXToken_Identifier
+]
+
+{ #category : #'accessing enum' }
+CXTokenKindEnum class >> CXToken_Keyword [
+	"This method was automatically generated"
+	^ CXToken_Keyword
+]
+
+{ #category : #'accessing enum' }
+CXTokenKindEnum class >> CXToken_Literal [
+	"This method was automatically generated"
+	^ CXToken_Literal
+]
+
+{ #category : #'accessing enum' }
+CXTokenKindEnum class >> CXToken_Punctuation [
+	"This method was automatically generated"
+	^ CXToken_Punctuation
+]
+
 { #category : #'enum declaration' }
 CXTokenKindEnum class >> enumDecl [
 	^#(

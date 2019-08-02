@@ -111,6 +111,11 @@ CXIndexH >> annotateTokens: tU Tokens: tokens NumTokens: numTokens Cursors: curs
 ]
 
 { #category : #'foreign interface' }
+CXIndexH >> call: fnSpec options: callOptions [
+	^ self ffiCall: fnSpec module: CXIndexH
+]
+
+{ #category : #'foreign interface' }
 CXIndexH >> codeCompleteAt: tU complete_filename: complete_filename complete_line: complete_line complete_column: complete_column unsaved_files: unsaved_files num_unsaved_files: num_unsaved_files options: options [ 
 	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
 	^self call: #(CXCodeCompleteResults * clang_codeCompleteAt(CXTranslationUnit tU, FFICharacterType * complete_filename, FFIUInt32 complete_line, FFIUInt32 complete_column, CXUnsavedFileStruct * unsaved_files, FFIUInt32 num_unsaved_files, FFIUInt32 options)) options: #(  )
@@ -196,7 +201,6 @@ CXIndexH >> createCXCursorSet [
 
 { #category : #'foreign interface' }
 CXIndexH >> createIndex: excludeDeclarationsFromPCH displayDiagnostics: displayDiagnostics [ 
-	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
 	^self call: #(CXIndex clang_createIndex(FFIInt32 excludeDeclarationsFromPCH, FFIInt32 displayDiagnostics)) options: #(  )
 ]
 
@@ -285,9 +289,10 @@ CXIndexH >> disposeOverriddenCursors: overridden [
 ]
 
 { #category : #'foreign interface' }
-CXIndexH >> disposeString: string [ 
-	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
-	^self call: #(FFIVoid clang_disposeString(CXString string)) options: #(  )
+CXIndexH >> disposeString: string [
+	^ self
+		ffiCall: #(FFIVoid clang_disposeString #(CXStringStruct string))
+		module: CXIndexH
 ]
 
 { #category : #'foreign interface' }
@@ -375,9 +380,10 @@ CXIndexH >> getArraySize: t [
 ]
 
 { #category : #'foreign interface' }
-CXIndexH >> getCString: string [ 
-	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
-	^self call: #(FFICharacterType * clang_getCString(CXString string)) options: #(  )
+CXIndexH >> getCString: string [
+	^ self
+		ffiCall: #(FFICharacterType * clang_getCString #(CXStringStruct string))
+		module: CXIndexH
 ]
 
 { #category : #'foreign interface' }
@@ -412,8 +418,9 @@ CXIndexH >> getChildDiagnostics: d [
 
 { #category : #'foreign interface' }
 CXIndexH >> getClangVersion [
-	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
-	^self call: #(CXString clang_getClangVersion()) options: #(  )
+	^ self
+		ffiCall: #(CXStringStruct clang_getClangVersion #())
+		module: CXIndexH
 ]
 
 { #category : #'foreign interface' }
@@ -1218,6 +1225,16 @@ CXIndexH >> toggleCrashRecovery: isEnabled [
 CXIndexH >> tokenize: tU Range: range Tokens: tokens NumTokens: numTokens [ 
 	<primitive: #primitiveNativeCall module: #NativeBoostPlugin error: errorCode>
 	^self call: #(FFIVoid clang_tokenize(CXTranslationUnit tU, CXSourceRange range, CXToken * * tokens, FFIUInt32 * numTokens)) options: #(  )
+]
+
+{ #category : #'foreign interface' }
+CXIndexH >> unix64ModuleName [
+	^ 'libclang-3.8.so.1'
+]
+
+{ #category : #'foreign interface' }
+CXIndexH >> unixModuleName [
+	^ self unix64ModuleName
 ]
 
 { #category : #'foreign interface' }

@@ -16,14 +16,14 @@ Class {
 { #category : #private }
 CLTranslationUnit class >> argsFrom: anArrayOfStrings [
 	| argsP |
-	argsP := NativeBoost allocate: anArrayOfStrings size * NativeBoost forCurrentPlatform pointerSize.
+	argsP := FFIExternalArray
+		externalNewType: 'char*'
+		size: anArrayOfStrings size.
 	anArrayOfStrings
-		withIndexDo: [ :arg :idx | 
-			argsP
-				nbInt32AtOffset: (idx - 1) * NativeBoost forCurrentPlatform pointerSize
-				put: (ExternalAddress fromString: arg) value ].
+		withIndexDo:
+			[ :arg :idx | argsP at: idx put: (ExternalAddress fromString: arg)  ].
 	^ {argsP.
-	(anArrayOfStrings size)}
+	anArrayOfStrings size}
 ]
 
 { #category : #finalization }
@@ -98,9 +98,9 @@ CLTranslationUnit class >> source: aString lang: aLanguage allWarnings: hasWarni
 
 { #category : #private }
 CLTranslationUnit class >> unsavedFilesArray: anArrayOfAssociations [
-	| unsavedArrayType unsavedArray |
-	unsavedArrayType := FFIExternalArray ofType: #CXUnsavedFileStruct.
-	unsavedArray := unsavedArrayType new: anArrayOfAssociations size.
+	|  unsavedArray |
+
+	unsavedArray := FFIExternalArray newType: #CXUnsavedFileStruct size: anArrayOfAssociations size.
 	anArrayOfAssociations
 		withIndexDo: [ :uF :idx | 
 			unsavedArray

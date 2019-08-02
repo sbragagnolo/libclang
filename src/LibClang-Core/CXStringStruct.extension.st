@@ -2,9 +2,9 @@ Extension { #name : #CXStringStruct }
 
 { #category : #'*libclang-core' }
 CXStringStruct >> asString [
-	|cstr|
+	| cstr |
 	cstr := CXIndexH uniqueInstance getCString: self.
-	^cstr readString 
+	^ cstr
 ]
 
 { #category : #'*libclang-core' }
