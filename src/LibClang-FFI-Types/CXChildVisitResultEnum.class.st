@@ -1,6 +1,6 @@
 Class {
 	#name : #CXChildVisitResultEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXChildVisit_Break',
 		'CXChildVisit_Continue',
@@ -8,11 +8,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXChildVisitResultEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXChildVisitResultEnum class >> enumDecl [

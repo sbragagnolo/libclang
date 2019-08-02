@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxCXXClassDeclInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxCXXClassDeclInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxCXXClassDeclInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXIdxCXXClassDeclInfoStruct class >> fieldsDesc [
 	NBUInt32 numBases;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxCXXClassDeclInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

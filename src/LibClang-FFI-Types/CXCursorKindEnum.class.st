@@ -1,6 +1,6 @@
 Class {
 	#name : #CXCursorKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXCursor_AddrLabelExpr',
 		'CXCursor_AnnotateAttr',
@@ -164,11 +164,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXCursorKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXCursorKindEnum class >> enumDecl [

@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIndexerCallbacksStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIndexerCallbacksStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIndexerCallbacksStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -22,9 +22,4 @@ CXIndexerCallbacksStruct class >> fieldsDesc [
 	CXIndexHCb8 indexEntityReference;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIndexerCallbacksStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

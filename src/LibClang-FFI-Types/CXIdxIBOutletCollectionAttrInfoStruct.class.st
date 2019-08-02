@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxIBOutletCollectionAttrInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxIBOutletCollectionAttrInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxIBOutletCollectionAttrInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -18,9 +18,4 @@ CXIdxIBOutletCollectionAttrInfoStruct class >> fieldsDesc [
 	CXIdxLoc classLoc;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxIBOutletCollectionAttrInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

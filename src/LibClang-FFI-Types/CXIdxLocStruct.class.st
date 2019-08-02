@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxLocStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxLocStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxLocStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXIdxLocStruct class >> fieldsDesc [
 	NBUInt32 int_data;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxLocStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

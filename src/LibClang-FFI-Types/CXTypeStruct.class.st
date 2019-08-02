@@ -1,12 +1,12 @@
 Class {
 	#name : #CXTypeStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXTypeStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXTypeStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXTypeStruct class >> fieldsDesc [
 	NBVoid * data2;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXTypeStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

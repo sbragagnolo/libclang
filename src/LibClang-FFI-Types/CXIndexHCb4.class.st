@@ -1,15 +1,15 @@
 Class {
 	#name : #CXIndexHCb4,
-	#superclass : #NBFFICallback,
+	#superclass : #FFICallback,
 	#category : #'LibClang-FFI-Types'
 }
+
+{ #category : #'nativeboost types' }
+CXIndexHCb4 class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
+]
 
 { #category : #accessing }
 CXIndexHCb4 class >> fnSpec [
 	^#(NBVoid * (NBVoid * arg1, CXIdxIncludedFileInfoStruct * arg2))
-]
-
-{ #category : #'nativeboost types' }
-CXIndexHCb4 class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

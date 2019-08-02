@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxObjCContainerDeclInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxObjCContainerDeclInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxObjCContainerDeclInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -16,9 +16,4 @@ CXIdxObjCContainerDeclInfoStruct class >> fieldsDesc [
 	CXIdxObjCContainerKind kind;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxObjCContainerDeclInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

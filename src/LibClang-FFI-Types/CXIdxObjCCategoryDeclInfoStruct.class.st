@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxObjCCategoryDeclInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxObjCCategoryDeclInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxObjCCategoryDeclInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -19,9 +19,4 @@ CXIdxObjCCategoryDeclInfoStruct class >> fieldsDesc [
 	CXIdxObjCProtocolRefListInfo * protocols;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxObjCCategoryDeclInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

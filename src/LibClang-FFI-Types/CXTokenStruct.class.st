@@ -1,12 +1,12 @@
 Class {
 	#name : #CXTokenStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXTokenStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXTokenStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -19,9 +19,4 @@ CXTokenStruct class >> fieldsDesc [
 	NBVoid * ptr_data;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXTokenStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

@@ -1,12 +1,12 @@
 Class {
 	#name : #CXTUResourceUsageStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXTUResourceUsageStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXTUResourceUsageStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXTUResourceUsageStruct class >> fieldsDesc [
 	CXTUResourceUsageEntry * entries;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXTUResourceUsageStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

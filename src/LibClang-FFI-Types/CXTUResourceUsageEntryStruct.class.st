@@ -1,12 +1,12 @@
 Class {
 	#name : #CXTUResourceUsageEntryStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXTUResourceUsageEntryStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXTUResourceUsageEntryStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -16,9 +16,4 @@ CXTUResourceUsageEntryStruct class >> fieldsDesc [
 	NBUInt32 amount;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXTUResourceUsageEntryStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

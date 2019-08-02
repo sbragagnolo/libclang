@@ -1,6 +1,6 @@
 Class {
 	#name : #CXAvailabilityKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXAvailability_Available',
 		'CXAvailability_Deprecated',
@@ -9,11 +9,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXAvailabilityKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXAvailabilityKindEnum class >> enumDecl [

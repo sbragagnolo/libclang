@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxImportedASTFileInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxImportedASTFileInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxImportedASTFileInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXIdxImportedASTFileInfoStruct class >> fieldsDesc [
 	NBInt32 isModule;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxImportedASTFileInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

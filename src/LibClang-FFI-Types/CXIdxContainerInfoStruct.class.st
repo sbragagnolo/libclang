@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxContainerInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxContainerInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxContainerInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -15,9 +15,4 @@ CXIdxContainerInfoStruct class >> fieldsDesc [
 	CXCursor cursor;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxContainerInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

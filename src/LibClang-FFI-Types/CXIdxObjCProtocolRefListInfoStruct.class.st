@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxObjCProtocolRefListInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxObjCProtocolRefListInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxObjCProtocolRefListInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -16,9 +16,4 @@ CXIdxObjCProtocolRefListInfoStruct class >> fieldsDesc [
 	NBUInt32 numProtocols;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxObjCProtocolRefListInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

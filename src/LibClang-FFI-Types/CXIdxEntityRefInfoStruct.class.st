@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxEntityRefInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxEntityRefInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxEntityRefInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -20,9 +20,4 @@ CXIdxEntityRefInfoStruct class >> fieldsDesc [
 	CXIdxContainerInfo * container;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxEntityRefInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

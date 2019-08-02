@@ -1,24 +1,19 @@
 Class {
 	#name : #CXCursorAndRangeVisitorStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXCursorAndRangeVisitorStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXCursorAndRangeVisitorStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
 CXCursorAndRangeVisitorStruct class >> fieldsDesc [
 	^#(
-	NBVoid * context;
+	FFIVoid * context;
 	CXIndexHCb11 visit;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXCursorAndRangeVisitorStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

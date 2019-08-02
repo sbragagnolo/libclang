@@ -1,6 +1,6 @@
 Class {
 	#name : #CXCXXAccessSpecifierEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CX_CXXInvalidAccessSpecifier',
 		'CX_CXXPrivate',
@@ -9,11 +9,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXCXXAccessSpecifierEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXCXXAccessSpecifierEnum class >> enumDecl [

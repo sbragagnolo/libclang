@@ -1,6 +1,6 @@
 Class {
 	#name : #CXIdxAttrKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXIdxAttr_IBAction',
 		'CXIdxAttr_IBOutlet',
@@ -9,11 +9,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXIdxAttrKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXIdxAttrKindEnum class >> enumDecl [

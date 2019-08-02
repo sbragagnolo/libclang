@@ -1,12 +1,12 @@
 Class {
 	#name : #CXUnsavedFileStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXUnsavedFileStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXUnsavedFileStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -17,9 +17,4 @@ CXUnsavedFileStruct class >> fieldsDesc [
 	NBUInt32 Length;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXUnsavedFileStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

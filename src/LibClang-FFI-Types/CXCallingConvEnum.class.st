@@ -1,6 +1,6 @@
 Class {
 	#name : #CXCallingConvEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXCallingConv_AAPCS',
 		'CXCallingConv_AAPCS_VFP',
@@ -15,11 +15,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXCallingConvEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXCallingConvEnum class >> enumDecl [

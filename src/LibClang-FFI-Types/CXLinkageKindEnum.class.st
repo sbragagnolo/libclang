@@ -1,6 +1,6 @@
 Class {
 	#name : #CXLinkageKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXLinkage_External',
 		'CXLinkage_Internal',
@@ -10,11 +10,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXLinkageKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXLinkageKindEnum class >> enumDecl [

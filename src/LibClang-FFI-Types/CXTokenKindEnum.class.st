@@ -1,6 +1,6 @@
 Class {
 	#name : #CXTokenKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXToken_Comment',
 		'CXToken_Identifier',
@@ -10,11 +10,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXTokenKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXTokenKindEnum class >> enumDecl [

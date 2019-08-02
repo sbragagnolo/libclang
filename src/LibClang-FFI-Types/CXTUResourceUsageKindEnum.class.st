@@ -1,6 +1,6 @@
 Class {
 	#name : #CXTUResourceUsageKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXTUResourceUsage_AST',
 		'CXTUResourceUsage_AST_SideTables',
@@ -23,11 +23,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXTUResourceUsageKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXTUResourceUsageKindEnum class >> enumDecl [

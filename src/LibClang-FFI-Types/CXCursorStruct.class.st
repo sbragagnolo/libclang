@@ -1,27 +1,22 @@
 Class {
 	#name : #CXCursorStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXCursorStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXCursorStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
 CXCursorStruct class >> fieldsDesc [
 	^#(
 	CXCursorKindEnum kind;
-	NBInt32 xdata;
+	FFIInt32 xdata;
 	NBVoid * data1;
 	NBVoid * data2;
 	NBVoid * data3;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXCursorStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

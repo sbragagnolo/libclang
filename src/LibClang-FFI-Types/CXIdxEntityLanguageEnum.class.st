@@ -1,6 +1,6 @@
 Class {
 	#name : #CXIdxEntityLanguageEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXIdxEntityLang_C',
 		'CXIdxEntityLang_CXX',
@@ -9,11 +9,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXIdxEntityLanguageEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXIdxEntityLanguageEnum class >> enumDecl [

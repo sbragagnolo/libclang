@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #'nativeboost types' }
-CXIndexH class >> nbBindingOf: aTypeName [
+CXIndexH class >> ffiBindingOf: aTypeName [
 	^ LibClangMap at: aTypeName
 ]
 

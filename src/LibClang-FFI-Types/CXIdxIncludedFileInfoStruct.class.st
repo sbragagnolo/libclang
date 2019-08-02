@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxIncludedFileInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxIncludedFileInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxIncludedFileInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -19,9 +19,4 @@ CXIdxIncludedFileInfoStruct class >> fieldsDesc [
 	NBInt32 isAngled;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxIncludedFileInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

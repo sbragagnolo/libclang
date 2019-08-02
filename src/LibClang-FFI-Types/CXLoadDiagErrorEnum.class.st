@@ -1,6 +1,6 @@
 Class {
 	#name : #CXLoadDiagErrorEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXLoadDiag_CannotLoad',
 		'CXLoadDiag_InvalidFile',
@@ -9,11 +9,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXLoadDiagErrorEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXLoadDiagErrorEnum class >> enumDecl [

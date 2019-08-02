@@ -1,12 +1,12 @@
 Class {
 	#name : #CXIdxEntityInfoStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXIdxEntityInfoStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXIdxEntityInfoStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -22,9 +22,4 @@ CXIdxEntityInfoStruct class >> fieldsDesc [
 	NBUInt32 numAttributes;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXIdxEntityInfoStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

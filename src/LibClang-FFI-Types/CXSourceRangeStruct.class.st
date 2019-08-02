@@ -1,12 +1,12 @@
 Class {
 	#name : #CXSourceRangeStruct,
-	#superclass : #NBExternalStructure,
+	#superclass : #FFIExternalStructure,
 	#category : #'LibClang-FFI-Types'
 }
 
-{ #category : #'nativeboost mapping' }
-CXSourceRangeStruct class >> asNBExternalType: gen [
-	^NBExternalStructureType objectClass: self
+{ #category : #'nativeboost types' }
+CXSourceRangeStruct class >> ffiBindingOf: aTypeName [
+	^ LibClangMap at: aTypeName
 ]
 
 { #category : #accessing }
@@ -18,9 +18,4 @@ CXSourceRangeStruct class >> fieldsDesc [
 	NBUInt32 end_int_data;
 
 	)
-]
-
-{ #category : #'nativeboost types' }
-CXSourceRangeStruct class >> nbBindingOf: aTypeName [
-	^ LibClangMap at: aTypeName
 ]

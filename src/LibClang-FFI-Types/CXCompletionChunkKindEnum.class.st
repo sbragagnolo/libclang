@@ -1,6 +1,6 @@
 Class {
 	#name : #CXCompletionChunkKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalStructure,
 	#classVars : [
 		'CXCompletionChunk_Colon',
 		'CXCompletionChunk_Comma',
@@ -26,11 +26,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXCompletionChunkKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXCompletionChunkKindEnum class >> enumDecl [

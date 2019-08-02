@@ -1,6 +1,6 @@
 Class {
 	#name : #CXDiagnosticSeverityEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXDiagnostic_Error',
 		'CXDiagnostic_Fatal',
@@ -10,11 +10,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXDiagnosticSeverityEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXDiagnosticSeverityEnum class >> enumDecl [

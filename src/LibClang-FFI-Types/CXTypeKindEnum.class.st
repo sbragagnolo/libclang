@@ -1,6 +1,6 @@
 Class {
 	#name : #CXTypeKindEnum,
-	#superclass : #NBExternalEnumeration,
+	#superclass : #FFIExternalEnumeration,
 	#classVars : [
 		'CXType_BlockPointer',
 		'CXType_Bool',
@@ -51,11 +51,6 @@ Class {
 	],
 	#category : #'LibClang-FFI-Types'
 }
-
-{ #category : #'nativeboost mapping' }
-CXTypeKindEnum class >> asNBExternalType: gen [
-	^NBExternalEnumerationType objectClass: self
-]
 
 { #category : #'enum declaration' }
 CXTypeKindEnum class >> enumDecl [
