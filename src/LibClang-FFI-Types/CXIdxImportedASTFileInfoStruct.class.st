@@ -14,7 +14,7 @@ CXIdxImportedASTFileInfoStruct class >> fieldsDesc [
 	^#(
 	CXFile file;
 	CXIdxLoc loc;
-	NBInt32 isModule;
+	FFIInt32 isModule;
 
 	)
 ]

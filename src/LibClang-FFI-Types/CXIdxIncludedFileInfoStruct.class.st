@@ -13,10 +13,10 @@ CXIdxIncludedFileInfoStruct class >> ffiBindingOf: aTypeName [
 CXIdxIncludedFileInfoStruct class >> fieldsDesc [
 	^#(
 	CXIdxLoc hashLoc;
-	NBCharacterType * filename;
+	FFICharacterType * filename;
 	CXFile file;
-	NBInt32 isImport;
-	NBInt32 isAngled;
+	FFIInt32 isImport;
+	FFIInt32 isAngled;
 
 	)
 ]

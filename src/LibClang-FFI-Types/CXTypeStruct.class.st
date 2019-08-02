@@ -13,8 +13,8 @@ CXTypeStruct class >> ffiBindingOf: aTypeName [
 CXTypeStruct class >> fieldsDesc [
 	^#(
 	CXTypeKindEnum kind;
-	NBVoid * data1;
-	NBVoid * data2;
+	FFIVoid * data1;
+	FFIVoid * data2;
 
 	)
 ]

@@ -11,5 +11,5 @@ CXIndexHCb11 class >> ffiBindingOf: aTypeName [
 
 { #category : #accessing }
 CXIndexHCb11 class >> fnSpec [
-	^#(CXVisitorResultEnum (NBVoid * arg1, CXCursorStruct arg2, CXSourceRangeStruct arg3))
+	^#(CXVisitorResultEnum (FFIVoid * arg1, CXCursorStruct arg2, CXSourceRangeStruct arg3))
 ]

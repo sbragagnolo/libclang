@@ -11,5 +11,5 @@ CXIndexHCb12 class >> ffiBindingOf: aTypeName [
 
 { #category : #accessing }
 CXIndexHCb12 class >> fnSpec [
-	^#(NBVoid (NBVoid * arg1))
+	^#(FFIVoid (FFIVoid * arg1))
 ]

@@ -11,5 +11,5 @@ CXCursorVisitorCb class >> ffiBindingOf: aTypeName [
 
 { #category : #accessing }
 CXCursorVisitorCb class >> fnSpec [
-	^#(CXChildVisitResultEnum (CXCursorStruct arg1, CXCursorStruct arg2, NBVoid * arg3))
+	^#(CXChildVisitResultEnum (CXCursorStruct arg1, CXCursorStruct arg2, FFIVoid * arg3))
 ]
