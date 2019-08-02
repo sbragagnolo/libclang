@@ -12,8 +12,8 @@ CXTUResourceUsageStruct class >> ffiBindingOf: aTypeName [
 { #category : #accessing }
 CXTUResourceUsageStruct class >> fieldsDesc [
 	^#(
-	NBVoid * data;
-	NBUInt32 numEntries;
+	FFIVoid * data;
+	FFIUInt32 numEntries;
 	CXTUResourceUsageEntry * entries;
 
 	)

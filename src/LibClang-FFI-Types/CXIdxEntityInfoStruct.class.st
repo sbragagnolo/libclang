@@ -1,6 +1,13 @@
 Class {
 	#name : #CXIdxEntityInfoStruct,
 	#superclass : #FFIExternalStructure,
+	#classVars : [
+		'OFFSET_KIND',
+		'OFFSET_LANG',
+		'OFFSET_NAME',
+		'OFFSET_TEMPLATEKIND',
+		'OFFSET_USR'
+	],
 	#category : #'LibClang-FFI-Types'
 }
 
@@ -15,11 +22,11 @@ CXIdxEntityInfoStruct class >> fieldsDesc [
 	CXIdxEntityKind kind;
 	CXIdxEntityCXXTemplateKind templateKind;
 	CXIdxEntityLanguage lang;
-	NBCharacterType * name;
-	NBCharacterType * USR;
+	FFICharacterType * name;
+	FFICharacterType * USR;
 	CXCursor cursor;
 	CXIdxAttrInfo * * attributes;
-	NBUInt32 numAttributes;
+	FFIInt32 numAttributes;
 
 	)
 ]

@@ -13,7 +13,7 @@ CXCodeCompleteResultsStruct class >> ffiBindingOf: aTypeName [
 CXCodeCompleteResultsStruct class >> fieldsDesc [
 	^#(
 	CXCompletionResult * Results;
-	NBUInt32 NumResults;
+	FFIUInt32 NumResults;
 
 	)
 ]

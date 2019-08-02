@@ -12,10 +12,10 @@ CXSourceRangeStruct class >> ffiBindingOf: aTypeName [
 { #category : #accessing }
 CXSourceRangeStruct class >> fieldsDesc [
 	^#(
-	NBVoid * ptr_data1;
-	NBVoid * ptr_data2;
-	NBUInt32 begin_int_data;
-	NBUInt32 end_int_data;
+	FFIVoid * ptr_data1;
+	FFIVoid * ptr_data2;
+	FFIUInt32 begin_int_data;
+	FFIUInt32 end_int_data;
 
 	)
 ]

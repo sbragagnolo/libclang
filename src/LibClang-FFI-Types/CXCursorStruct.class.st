@@ -14,9 +14,9 @@ CXCursorStruct class >> fieldsDesc [
 	^#(
 	CXCursorKindEnum kind;
 	FFIInt32 xdata;
-	NBVoid * data1;
-	NBVoid * data2;
-	NBVoid * data3;
+	FFIVoid * data1;
+	FFIVoid * data2;
+	FFIVoid * data3;
 
 	)
 ]

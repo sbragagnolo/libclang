@@ -13,7 +13,7 @@ CXIdxObjCProtocolRefListInfoStruct class >> ffiBindingOf: aTypeName [
 CXIdxObjCProtocolRefListInfoStruct class >> fieldsDesc [
 	^#(
 	CXIdxObjCProtocolRefInfo * * protocols;
-	NBUInt32 numProtocols;
+	FFIUInt32 numProtocols;
 
 	)
 ]

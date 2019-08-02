@@ -14,7 +14,7 @@ CXIdxCXXClassDeclInfoStruct class >> fieldsDesc [
 	^#(
 	CXIdxDeclInfo * declInfo;
 	CXIdxBaseClassInfo * * bases;
-	NBUInt32 numBases;
+	FFIUInt32 numBases;
 
 	)
 ]

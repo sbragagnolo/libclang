@@ -113,5 +113,5 @@ CXCursorStruct >> usr [
 
 { #category : #'*libclang-core-visiting' }
 CXCursorStruct >> visitChildren: aCXCursorVisitorCb [
-	^ self clang visitChildren: self visitor: aCXCursorVisitorCb client_data: NBExternalAddress new.
+	^ self clang visitChildren: self visitor: aCXCursorVisitorCb client_data: ExternalAddress new.
 ]

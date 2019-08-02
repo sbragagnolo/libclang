@@ -12,11 +12,11 @@ CXTokenStruct class >> ffiBindingOf: aTypeName [
 { #category : #accessing }
 CXTokenStruct class >> fieldsDesc [
 	^#(
-	NBUInt32 int_data1;
-	NBUInt32 int_data2;
-	NBUInt32 int_data3;
-	NBUInt32 int_data4;
-	NBVoid * ptr_data;
+	FFIUInt32 int_data1;
+	FFIUInt32 int_data2;
+	FFIUInt32 int_data3;
+	FFIUInt32 int_data4;
+	FFIVoid * ptr_data;
 
 	)
 ]

@@ -12,8 +12,8 @@ CXStringStruct class >> ffiBindingOf: aTypeName [
 { #category : #accessing }
 CXStringStruct class >> fieldsDesc [
 	^#(
-	NBVoid * data;
-	NBUInt32 private_flags;
+	FFIVoid * data;
+	FFIUInt32 private_flags;
 
 	)
 ]

@@ -13,7 +13,7 @@ CXTUResourceUsageEntryStruct class >> ffiBindingOf: aTypeName [
 CXTUResourceUsageEntryStruct class >> fieldsDesc [
 	^#(
 	CXTUResourceUsageKindEnum kind;
-	NBUInt32 amount;
+	FFIUInt32 amount;
 
 	)
 ]

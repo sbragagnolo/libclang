@@ -21,7 +21,7 @@ CLTranslationUnit class >> argsFrom: anArrayOfStrings [
 		withIndexDo: [ :arg :idx | 
 			argsP
 				nbInt32AtOffset: (idx - 1) * NativeBoost forCurrentPlatform pointerSize
-				put: (NBExternalAddress fromString: arg) value ].
+				put: (ExternalAddress fromString: arg) value ].
 	^ {argsP.
 	(anArrayOfStrings size)}
 ]
@@ -99,7 +99,7 @@ CLTranslationUnit class >> source: aString lang: aLanguage allWarnings: hasWarni
 { #category : #private }
 CLTranslationUnit class >> unsavedFilesArray: anArrayOfAssociations [
 	| unsavedArrayType unsavedArray |
-	unsavedArrayType := NBExternalArray ofType: #CXUnsavedFileStruct.
+	unsavedArrayType := FFIExternalArray ofType: #CXUnsavedFileStruct.
 	unsavedArray := unsavedArrayType new: anArrayOfAssociations size.
 	anArrayOfAssociations
 		withIndexDo: [ :uF :idx | 
@@ -107,8 +107,8 @@ CLTranslationUnit class >> unsavedFilesArray: anArrayOfAssociations [
 				at: idx
 				put:
 					(CXUnsavedFileStruct new
-						Filename: (NBExternalAddress fromString: uF key);
-						Contents: (NBExternalAddress fromString: uF value);
+						Filename: (ExternalAddress fromString: uF key);
+						Contents: (ExternalAddress fromString: uF value);
 						Length: uF value size;
 						yourself) ].
 	^ unsavedArray
@@ -157,7 +157,7 @@ CLTranslationUnit >> handle [
 CLTranslationUnit >> handle: anObject [
 	handle := anObject.
 	handle ifNil: [ ^ self error: 'Invalid TranslationUnit handle' ].
-	NBExternalResourceManager addResource: self data: handle
+	FFIExternalResourceManager addResource: self data: handle
 ]
 
 { #category : #accessing }

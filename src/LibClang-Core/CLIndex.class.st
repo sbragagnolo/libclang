@@ -35,7 +35,7 @@ CLIndex >> create [
 		ifTrue: [ self error: 'could not create index' ]
 		ifFalse: [ 
 			handle := index.
-			NBExternalResourceManager addResource: self data: handle ].
+			FFIExternalResourceManager addResource: self data: handle ].
 ]
 
 { #category : #'as yet unclassified' }
@@ -68,7 +68,7 @@ CLIndex >> initialize [
 { #category : #'as yet unclassified' }
 CLIndex >> translationUnit: aPCHFile [
 	| fileP |
-	fileP := NBExternalAddress fromString: aPCHFile.
+	fileP := ExternalAddress fromString: aPCHFile.
 	^ CLTranslationUnit
 		handle: (self clang createTranslationUnit: self handle ast_filename: fileP)
 		index: self
@@ -78,8 +78,8 @@ CLIndex >> translationUnit: aPCHFile [
 { #category : #'as yet unclassified' }
 CLIndex >> translationUnitFromSource: aSourceFile options: anArrayOfStrings [
 	| fileP tuHandle args argsP |
-	fileP := NBExternalAddress fromString: aSourceFile.
-	args := anArrayOfStrings collect: [ :each | NBExternalAddress fromString: each ].
+	fileP := ExternalAddress fromString: aSourceFile.
+	args := anArrayOfStrings collect: [ :each | ExternalAddress fromString: each ].
 	argsP := NativeBoost allocate: args size * 4.
 	args withIndexDo: [ :arg :idx | argsP nbInt32AtOffset: (idx - 1) * 4 put: arg value ].
 	tuHandle := self clang

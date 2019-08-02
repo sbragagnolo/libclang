@@ -12,9 +12,9 @@ CXUnsavedFileStruct class >> ffiBindingOf: aTypeName [
 { #category : #accessing }
 CXUnsavedFileStruct class >> fieldsDesc [
 	^#(
-	NBCharacterType * Filename;
-	NBCharacterType * Contents;
-	NBUInt32 Length;
+	FFICharacterType * Filename;
+	FFICharacterType * Contents;
+	FFIUInt32 Length;
 
 	)
 ]

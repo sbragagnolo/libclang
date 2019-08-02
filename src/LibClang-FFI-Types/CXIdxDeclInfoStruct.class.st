@@ -1,6 +1,9 @@
 Class {
 	#name : #CXIdxDeclInfoStruct,
 	#superclass : #FFIExternalStructure,
+	#classVars : [
+		'OFFSET_ENTITYINFO'
+	],
 	#category : #'LibClang-FFI-Types'
 }
 
@@ -17,13 +20,13 @@ CXIdxDeclInfoStruct class >> fieldsDesc [
 	CXIdxLoc loc;
 	CXIdxContainerInfo * semanticContainer;
 	CXIdxContainerInfo * lexicalContainer;
-	NBInt32 isRedeclaration;
-	NBInt32 isDefinition;
-	NBInt32 isContainer;
+	FFIInt32 isRedeclaration;
+	FFIInt32 isDefinition;
+	FFIInt32 isContainer;
 	CXIdxContainerInfo * declAsContainer;
-	NBInt32 isImplicit;
+	FFIInt32 isImplicit;
 	CXIdxAttrInfo * * attributes;
-	NBUInt32 numAttributes;
+	FFIInt32 numAttributes;
 
 	)
 ]

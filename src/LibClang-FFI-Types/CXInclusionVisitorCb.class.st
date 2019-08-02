@@ -11,5 +11,5 @@ CXInclusionVisitorCb class >> ffiBindingOf: aTypeName [
 
 { #category : #accessing }
 CXInclusionVisitorCb class >> fnSpec [
-	^#(NBVoid (NBVoid * arg1, CXSourceLocationStruct * arg2, NBUInt32 arg3, NBVoid * arg4))
+	^#(FFIVoid (FFIVoid * arg1, CXSourceLocationStruct * arg2, FFIUInt32 arg3, FFIVoid * arg4))
 ]

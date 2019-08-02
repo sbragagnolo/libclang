@@ -87,7 +87,7 @@ CLDiagnostic >> handle [
 CLDiagnostic >> handle: anObject [
 	handle := anObject.
 	handle ifNil: [ ^ self error: 'Invalid CLDiagnosticSet handle' ].
-	NBExternalResourceManager addResource: self data: handle
+	FFIExternalResourceManager addResource: self data: handle
 ]
 
 { #category : #accessing }
