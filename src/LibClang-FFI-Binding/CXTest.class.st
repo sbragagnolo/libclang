@@ -7,7 +7,7 @@ Class {
 { #category : #'accessing platform' }
 CXTest >> getClangVersion [
 "	self uniqueInstance getClangVersion"
-	^self ffiCall: #(CXStringStruct clang_getClangVersion()) module: CXTest
+	^self ffiCall: #(CXString clang_getClangVersion()) module: CXTest
 ]
 
 { #category : #'accessing platform' }

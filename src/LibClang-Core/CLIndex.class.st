@@ -79,9 +79,11 @@ CLIndex >> translationUnit: aPCHFile [
 CLIndex >> translationUnitFromSource: aSourceFile options: anArrayOfStrings [
 	| fileP tuHandle args argsP |
 	fileP := ExternalAddress fromString: aSourceFile.
+	
 	args := anArrayOfStrings collect: [ :each | ExternalAddress fromString: each ].
-	argsP := NativeBoost allocate: args size * 4.
-	args withIndexDo: [ :arg :idx | argsP nbInt32AtOffset: (idx - 1) * 4 put: arg value ].
+	argsP := FFIExternalArray externalNewType: #FFIExternalString size: args size.
+	argsP type pointerArity: 1 .
+	args withIndexDo: [ :arg :idx | argsP at: idx put: arg  ].
 	tuHandle := self clang
 		createTranslationUnitFromSourceFile: self handle
 		source_filename: fileP

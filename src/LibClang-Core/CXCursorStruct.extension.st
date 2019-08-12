@@ -85,8 +85,14 @@ CXCursorStruct >> referenced [
 
 { #category : #'*libclang-core-accessing' }
 CXCursorStruct >> spelling [
-	| cxstr str |
-	cxstr := self clang getCursorSpelling: self.
+	| cxstr str externalCopy |
+	externalCopy := CXCursorStruct externalNew.
+	externalCopy data1: self data1.
+	externalCopy data2: self data2.
+	externalCopy data3: self data3.
+	externalCopy xdata: self xdata.
+	externalCopy kind: self kind.
+	cxstr := self clang getCursorSpelling: externalCopy .
 	str := cxstr asString.
 	cxstr disposeString.
 	^ str
